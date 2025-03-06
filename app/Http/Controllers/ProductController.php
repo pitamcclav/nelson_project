@@ -44,7 +44,7 @@ class ProductController extends Controller
                 'unit' => 'required|max:50',
                 'quantity' => 'required|numeric|min:0',
                 'price' => 'required|numeric|min:0',
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             ]);
 
 
