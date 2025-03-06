@@ -77,7 +77,7 @@
             <div class="bg-gray-50 rounded-lg p-4">
                 <h3 class="font-semibold text-gray-800 mb-2">Seller Information</h3>
                 <div class="flex items-center">
-                    <img src="{{ asset('images/' . ($product->seller->avatar ?? 'default-avatar.jpg')) }}" 
+                    <img src="https://avatar.iran.liara.run/public"
                          alt="{{ $product->seller->name }}"
                          class="w-12 h-12 rounded-full object-cover">
                     <div class="ml-3">

@@ -48,7 +48,7 @@
             <ul class="flex justify-center py-3 space-x-8">
                 <li><a href="{{ route('guest.home') }}" class="text-white hover:text-emerald-900">Home</a></li>
                 <li><a href="{{ route('guest.marketplace') }}" class="text-white hover:text-emerald-900">Marketplace</a></li>
-                <li><a href="{{ route('guest.farmers') }}" class="text-white hover:text-emerald-900">Farmers</a></li>
+                {{-- <li><a href="{{ route('guest.farmers') }}" class="text-white hover:text-emerald-900">Farmers</a></li> --}}
                 <li><a href="{{ route('guest.buyers') }}" class="text-white hover:text-emerald-900">Buyers</a></li>
                 <li><a href="{{ route('guest.contact') }}" class="text-white hover:text-emerald-900">Contact</a></li>
             </ul>
