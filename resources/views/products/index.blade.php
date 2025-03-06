@@ -78,7 +78,7 @@
                         </svg>
                     </button>
                 </div>
-                <form id="productForm" method="POST" action="{{ route('products.store') }}">
+                <form id="productForm" method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div id="methodField"></div>
                     <div class="px-6 py-4 space-y-4">
@@ -116,6 +116,12 @@
                                 </div>
                                 <input type="number" step="0.01" name="price" id="price" min="0" class="pl-8 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring focus:ring-emerald-200">
                             </div>
+                        </div>
+                        {{-- //upload the image --}}
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Image</label>
+                            <input type="file" name="image" id="image"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring focus:ring-emerald-200">
                         </div>
                     </div>
                     <div class="px-6 py-4 bg-gray-50 flex justify-end space-x-3 rounded-b-xl">

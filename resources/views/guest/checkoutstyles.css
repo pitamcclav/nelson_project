@@ -1,0 +1,233 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Header Styling */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2C6E49;
+    padding: 15px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  header .logo span {
+    color: #FFD700;
+  }
+  
+  header .search-bar input {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  header .search-bar input:focus {
+    width: 400px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  header .social-icons a {
+    color: white;
+    font-size: 20px;
+    margin-left: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  header .social-icons a:hover {
+    color: #FFD700;
+  }
+  
+  header .login-button {
+    background-color: #FFD700;
+    color: #2C6E49;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  header .login-button:hover {
+    background-color: #2C6E49;
+    color: white;
+  }
+  nav {
+    background-color: #333;
+    padding: 10px 0;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    margin: 0 20px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #FFD700;
+  }
+  /* Checkout Section */
+  .checkout {
+    padding: 50px 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .checkout h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  
+  .checkout-form {
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .checkout-form .form-group {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  .checkout-form label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .checkout-form input,
+  .checkout-form select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .checkout-form select {
+    cursor: pointer;
+  }
+  
+  .checkout-form button.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #FFD700;
+    color: #2C6E49;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .checkout-form button.submit-btn:hover {
+    background-color: #2C6E49;
+    color: white;
+  }
+  
+  #payment-details .form-group {
+    display: none;
+  }
+  
+  #payment-details .form-group input {
+    width: 100%;
+  }
+  
+  /* Footer Section */
+  footer {
+    background-color: #2C6E49;
+    padding: 20px;
+    color: white;
+    text-align: center;
+  }
+  
+  footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  footer .footer-logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  footer .footer-logo span {
+    color: #FFD700;
+  }
+  
+  footer .footer-nav {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  footer .footer-nav li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  footer .footer-nav li a:hover {
+    color: #FFD700;
+  }
+  
+  /* Mobile Responsiveness */
+  @media screen and (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    header .search-bar input {
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    header .login-button {
+      margin-top: 10px;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .product-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

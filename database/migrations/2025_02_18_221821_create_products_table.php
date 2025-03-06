@@ -20,7 +20,9 @@ return new class extends Migration
             $table->enum('unit', ['kg', 'ton', 'litre', 'piece', 'batch', 'tray', 'crate', 'bag', 'sack', 'bundle']);
             $table->decimal('quantity', 10, 2);
             $table->decimal('price', 10, 2);
+            $table->string('image');
             $table->enum('status', ['available', 'sold', 'pending'])->default('available');
+
             $table->timestamps();
         });
     }

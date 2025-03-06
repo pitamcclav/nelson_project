@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -30,6 +31,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // \Log::info($request->all());
+        //check type of the image
+        // \Log::info($request->image->extension());
+        // die();
 
         try{
             $validated = $request->validate([
@@ -39,11 +44,24 @@ class ProductController extends Controller
                 'unit' => 'required|max:50',
                 'quantity' => 'required|numeric|min:0',
                 'price' => 'required|numeric|min:0',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
-            $validated['user_id'] = auth()->id();
-//            var_dump($validated);
-//            die();
+
+
+            if ($request->hasFile('image')) {
+                $image = $request->file('image'); // Correct Way
+                $imageName = time().'.'.$image->extension();
+                $image->move(public_path('images'), $imageName);
+                $validated['image'] = $imageName; 
+            }
+            
+
+
+            $validated['user_id'] = Auth::user()->id;
+
+            // \Log::info($validated);
+            // die();
             Product::create($validated);
 
             return redirect()->route('products.index')
