@@ -33,7 +33,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <!-- Filters -->
         <div class="lg:col-span-1">
-            <div class="bg-white rounded-lg shadow-md p-6">
+            <div class="bg-white rounded-lg shadow-md p-6 lg:sticky lg:top-[calc(64px+48px+40px+2rem)] transition-all duration-300">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">Filters</h2>
                 
                 <!-- Category Filter -->
