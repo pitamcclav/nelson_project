@@ -46,7 +46,7 @@
                                 <div class="text-xs text-gray-500">{{ ucfirst($product->unit) }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">${{ number_format($product->price, 2) }}</div>
+                                <div class="text-sm text-gray-900">UGX {{ number_format($product->price, 2) }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <button onclick="openEditModal({{ $product->id }})" class="text-indigo-600 hover:text-indigo-900 mr-3 transition-colors">
@@ -112,9 +112,9 @@
                             <label class="block text-sm font-medium text-gray-700">Price</label>
                             <div class="relative mt-1">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <span class="text-gray-500">$</span>
+                                    <span class="text-gray-500">UGX</span>
                                 </div>
-                                <input type="number" step="0.01" name="price" id="price" min="0" class="pl-8 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring focus:ring-emerald-200">
+                                <input type="number" step="0.01" name="price" id="price" min="0" class="pl-12 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring focus:ring-emerald-200">
                             </div>
                         </div>
                         {{-- //upload the image --}}

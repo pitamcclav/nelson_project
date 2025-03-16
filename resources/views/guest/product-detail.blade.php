@@ -28,7 +28,7 @@
 
             <!-- Price -->
             <div class="text-2xl font-bold text-emerald-700 mb-4">
-                KES {{ number_format($product->price, 2) }} / {{ $product->unit }}
+                UGX {{ number_format($product->price, 2) }} / {{ $product->unit }}
             </div>
 
             <!-- Stock Status -->
@@ -179,7 +179,7 @@
                                  class="w-full h-48 object-cover">
                             <div class="p-4">
                                 <h3 class="font-medium text-gray-800 mb-2">{{ $related->name }}</h3>
-                                <p class="text-emerald-700 font-bold">KES {{ number_format($related->price, 2) }} / {{ $related->unit }}</p>
+                                <p class="text-emerald-700 font-bold">UGX {{ number_format($related->price, 2) }} / {{ $related->unit }}</p>
                             </div>
                         </a>
                     </div>

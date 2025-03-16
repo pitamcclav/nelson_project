@@ -35,7 +35,7 @@
                                  alt="{{ $product->name }}" class="w-10 h-10 rounded object-cover">
                             <div class="ml-2">
                                 <p class="text-sm font-medium text-gray-800">{{ $product->name }}</p>
-                                <p class="text-xs text-emerald-600">KES {{ number_format($product->price, 2) }}</p>
+                                <p class="text-xs text-emerald-600">UGX {{ number_format($product->price, 2) }}</p>
                             </div>
                         </a>
                         @endforeach

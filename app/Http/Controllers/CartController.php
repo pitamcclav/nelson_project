@@ -11,7 +11,7 @@ class CartController extends Controller
     {
         $cart = session()->get('cart', []);
         $total = 0;
-        $shipping = count($cart) > 0 ? 200 : 0; // KES 200 shipping fee if cart has items
+        $shipping = count($cart) > 0 ? 200 : 0; // UGX 200 shipping fee if cart has items
 
         foreach($cart as $item) {
             $total += $item['price'] * $item['quantity'];

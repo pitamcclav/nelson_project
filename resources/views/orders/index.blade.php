@@ -37,7 +37,7 @@
                             <td class="px-6 py-4">{{ $order->buyer->name }}</td>
                             <td class="px-6 py-4">{{ $order->product->name }}</td>
                             <td class="px-6 py-4">{{ $order->quantity }}</td>
-                            <td class="px-6 py-4">${{ number_format($order->total_price, 2) }}</td>
+                            <td class="px-6 py-4">UGX {{ number_format($order->total_price, 2) }}</td>
                             <td class="px-6 py-4">{{ ucfirst($order->status) }}</td>
                             <td class="px-6 py-4 text-right">
                                 <button onclick="openEditModal({{ $order->id }})" class="text-indigo-600 hover:text-indigo-900 mr-3 transition-colors">

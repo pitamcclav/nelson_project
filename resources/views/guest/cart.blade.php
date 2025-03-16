@@ -98,6 +98,8 @@
     </div>
 </div>
 
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -107,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
                 },
                 body: JSON.stringify({ id, quantity })
             });
@@ -126,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
                 },
                 body: JSON.stringify({ id })
             });
@@ -142,6 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } catch (error) {
             console.error('Error:', error);
+            alert('Failed to remove item from cart. Please try again.');
         }
     };
 

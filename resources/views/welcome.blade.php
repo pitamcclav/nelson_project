@@ -28,13 +28,7 @@
                     <a href="#" class="text-white hover:text-yellow-400 transition-colors"><i class="fab fa-linkedin"></i></a>
                 </div>
                 
-                @if (Route::has('login'))
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="bg-yellow-400 text-emerald-700 px-6 py-2 rounded-full font-bold hover:bg-emerald-700 hover:text-white transition-colors">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="bg-yellow-400 text-emerald-700 px-6 py-2 rounded-full font-bold hover:bg-emerald-700 hover:text-white transition-colors">Login</a>
-                    @endauth
-                @endif
+                <a href="{{ route('login') }}" class="bg-yellow-400 text-emerald-700 px-6 py-2 rounded-full font-bold hover:bg-emerald-700 hover:text-white transition-colors">Login</a>
             </div>
         </div>
     </header>
@@ -82,7 +76,7 @@
                     <img src="{{ asset('images/' . ($product->image ?? 'default-product.jpg')) }}" alt="{{ $product->name }}" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-gray-800">{{ $product->name }}</h3>
-                        <p class="text-emerald-700 font-bold mt-1">KES {{ number_format($product->price, 2) }} / {{ $product->unit }}</p>
+                        <p class="text-emerald-700 font-bold mt-1">UGX {{ number_format($product->price, 2) }} / {{ $product->unit }}</p>
                         <a href="{{ route('guest.product-detail', $product->id) }}" class="text-yellow-500 hover:text-yellow-600 text-sm font-semibold mt-2 inline-block">View Details →</a>
                     </div>
                 </div>

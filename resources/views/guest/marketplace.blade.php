@@ -44,12 +44,12 @@
                     <h3 class="font-medium text-gray-700 mb-2">Price Range</h3>
                     <div class="space-y-4">
                         <div>
-                            <label class="text-sm text-gray-600">Min Price (KES)</label>
+                            <label class="text-sm text-gray-600">Min Price (UGX)</label>
                             <input type="number" name="min_price" min="0" 
                                    class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500">
                         </div>
                         <div>
-                            <label class="text-sm text-gray-600">Max Price (KES)</label>
+                            <label class="text-sm text-gray-600">Max Price (UGX)</label>
                             <input type="number" name="max_price" min="0"
                                    class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500">
                         </div>
@@ -105,7 +105,7 @@
                         <div class="p-4">
                             <h3 class="font-medium text-gray-800 mb-2">{{ $product->name }}</h3>
                             <div class="flex items-center justify-between">
-                                <p class="text-emerald-700 font-bold">KES {{ number_format($product->price, 2) }} / {{ $product->unit }}</p>
+                                <p class="text-emerald-700 font-bold">UGX {{ number_format($product->price, 2) }} / {{ $product->unit }}</p>
                                 <p class="text-sm text-gray-500">Stock: {{ $product->quantity }}</p>
                             </div>
                             <div class="mt-4 flex items-center justify-between">
