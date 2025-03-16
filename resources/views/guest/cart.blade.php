@@ -35,7 +35,7 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">KES {{ number_format($item['price'], 2) }} / {{ $item['unit'] }}</div>
+                                <div class="text-sm text-gray-900">UGX {{ number_format($item['price'], 2) }} / {{ $item['unit'] }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center border border-gray-300 rounded-md w-24">
@@ -46,7 +46,7 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-emerald-700 item-total">
-                                KES {{ number_format($item['price'] * $item['quantity'], 2) }}
+                                UGX {{ number_format($item['price'] * $item['quantity'], 2) }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <button class="text-red-500 hover:text-red-700 remove-item">
@@ -63,9 +63,9 @@
                 <div class="flex flex-col md:flex-row md:justify-between md:items-center">
                     <!-- Cart Total -->
                     <div class="mb-6 md:mb-0">
-                        <div class="text-gray-700">Subtotal: <span class="font-bold" id="subtotal">KES {{ number_format($total, 2) }}</span></div>
-                        <div class="text-gray-700">Shipping: <span class="font-bold" id="shipping">KES {{ number_format($shipping, 2) }}</span></div>
-                        <div class="text-lg font-bold text-emerald-700 mt-2">Total: <span id="total">KES {{ number_format($total + $shipping, 2) }}</span></div>
+                        <div class="text-gray-700">Subtotal: <span class="font-bold" id="subtotal">UGX {{ number_format($total, 2) }}</span></div>
+                        <div class="text-gray-700">Shipping: <span class="font-bold" id="shipping">UGX {{ number_format($shipping, 2) }}</span></div>
+                        <div class="text-lg font-bold text-emerald-700 mt-2">Total: <span id="total">UGX {{ number_format($total + $shipping, 2) }}</span></div>
                     </div>
                     
                     <!-- Action Buttons -->
@@ -124,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const removeItem = async (id, row) => {
         try {
+            console.log('Removing item with ID:', id); // Debug log
             const response = await fetch('{{ route("guest.cart.remove") }}', {
                 method: 'DELETE',
                 headers: {
@@ -133,18 +134,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: JSON.stringify({ id })
             });
             
-            if (!response.ok) throw new Error('Failed to remove item');
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Failed to remove item');
+            }
             
-            row.remove();
-            updateCartTotals();
-            
-            // Show empty cart message if no items left
-            if (document.querySelectorAll('.cart-item').length === 0) {
-                location.reload();
+            const result = await response.json();
+            if (result.success) {
+                row.remove();
+                updateCartTotals();
+                
+                // Show empty cart message if no items left
+                if (document.querySelectorAll('.cart-item').length === 0) {
+                    location.reload();
+                }
+            } else {
+                throw new Error('Failed to remove item from cart');
             }
         } catch (error) {
-            console.error('Error:', error);
-            alert('Failed to remove item from cart. Please try again.');
+            console.error('Error removing item:', error);
+            alert('Failed to remove item from cart: ' + error.message);
         }
     };
 
@@ -157,16 +166,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const quantity = parseInt(row.querySelector('.quantity-input').value);
             const itemTotal = price * quantity;
             
-            row.querySelector('.item-total').textContent = `KES ${itemTotal.toFixed(2)}`;
+            row.querySelector('.item-total').textContent = `UGX ${itemTotal.toFixed(2)}`;
             subtotal += itemTotal;
         });
         
         const shipping = rows.length > 0 ? 200 : 0;
         const total = subtotal + shipping;
         
-        document.getElementById('subtotal').textContent = `KES ${subtotal.toFixed(2)}`;
-        document.getElementById('shipping').textContent = `KES ${shipping.toFixed(2)}`;
-        document.getElementById('total').textContent = `KES ${total.toFixed(2)}`;
+        document.getElementById('subtotal').textContent = `UGX ${subtotal.toFixed(2)}`;
+        document.getElementById('shipping').textContent = `UGX ${shipping.toFixed(2)}`;
+        document.getElementById('total').textContent = `UGX ${total.toFixed(2)}`;
     };
 
     // Handle quantity changes

@@ -136,4 +136,55 @@ class GuestController extends Controller
             ], 500);
         }
     }
+
+    public function search(Request $request)
+    {
+        $query = Product::query();
+
+        // Search by name, description, or category
+        if ($request->has('query')) {
+            $searchTerm = $request->input('query');
+            $query->where(function($q) use ($searchTerm) {
+                $q->where('name', 'like', "%{$searchTerm}%")
+                  ->orWhere('description', 'like', "%{$searchTerm}%")
+                  ->orWhere('category', 'like', "%{$searchTerm}%");
+            });
+        }
+
+        // Apply category filter
+        if ($request->has('category')) {
+            $query->whereIn('category', $request->category);
+        }
+
+        // Apply price range filter
+        if ($request->has('min_price')) {
+            $query->where('price', '>=', $request->min_price);
+        }
+        if ($request->has('max_price')) {
+            $query->where('price', '<=', $request->max_price);
+        }
+
+        // Only show products with stock
+        $query->where('quantity', '>', 0);
+
+        // Apply sorting
+        switch ($request->get('sort', 'latest')) {
+            case 'price_low':
+                $query->orderBy('price', 'asc');
+                break;
+            case 'price_high':
+                $query->orderBy('price', 'desc');
+                break;
+            case 'popularity':
+                $query->withCount('reviews')
+                      ->orderBy('reviews_count', 'desc');
+                break;
+            default:
+                $query->latest();
+        }
+
+        $products = $query->paginate(12)->withQueryString();
+        
+        return view('guest.marketplace', compact('products'));
+    }
 }

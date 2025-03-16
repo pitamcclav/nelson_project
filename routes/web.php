@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
 Route::name('guest.')->group(function () {
     Route::get('/', [GuestController::class, 'index'])->name('home');
     Route::get('/marketplace', [GuestController::class, 'marketplace'])->name('marketplace');
+    Route::get('/search', [GuestController::class, 'search'])->name('search');
     Route::get('/product/{product}', [GuestController::class, 'productDetail'])->name('product-detail');
     Route::get('/farmers', [GuestController::class, 'farmers'])->name('farmers');
     Route::get('/buyers', [GuestController::class, 'buyers'])->name('buyers');
