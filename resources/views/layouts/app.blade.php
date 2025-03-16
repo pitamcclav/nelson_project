@@ -13,7 +13,7 @@
     <aside class="bg-green-800 text-white w-64 flex-shrink-0 hidden md:block">
         <!-- Logo Section -->
         <div class="p-4 border-b border-green-700">
-            <h1 class="text-2xl font-bold">Agrilink</h1>
+            <h1 class="text-2xl font-bold">AgriLink</h1>
         </div>
 
         <!-- Navigation Menu -->
